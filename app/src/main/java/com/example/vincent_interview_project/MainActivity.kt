@@ -100,7 +100,7 @@ fun MartListScreen(navController: NavController, viewModel: MartViewModel) {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         AsyncImage(
-                            model = item.logoUrl,
+                            model = item.imageUrl,
                             contentDescription = null,
                             modifier = Modifier.size(56.dp)
                         )

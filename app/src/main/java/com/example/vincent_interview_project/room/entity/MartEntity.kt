@@ -6,11 +6,23 @@ import com.example.vincent_interview_project.data.Mart
 
 @Entity(tableName = "mart")
 data class MartEntity(
-    @PrimaryKey val martId: String,
+    @PrimaryKey val martId: Int,
     val martName: String,
-    val logoUrl: String
+    val martShortName: String,
+    val price: Int,
+    val finalPrice: Int,
+    val stockAvailable: Int,
+    val imageUrl: String
 ) {
     companion object {
-        fun from(mart: Mart) = MartEntity(mart.martId, mart.martName, mart.logoUrl)
+        fun from(mart: Mart) = MartEntity(
+            martId = mart.martId,
+            martName = mart.martName,
+            martShortName = mart.martShortName,
+            price = mart.price,
+            finalPrice = mart.finalPrice,
+            stockAvailable = mart.stockAvailable,
+            imageUrl = mart.imageUrl
+        )
     }
 }

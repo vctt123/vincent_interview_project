@@ -1,6 +1,7 @@
 package com.example.vincent_interview_project.repository
 
 import com.example.vincent_interview_project.api.MartApi
+import com.example.vincent_interview_project.data.MartResponse
 import com.example.vincent_interview_project.room.dao.MartDao
 import com.example.vincent_interview_project.room.entity.MartEntity
 import kotlinx.coroutines.flow.Flow
@@ -13,7 +14,8 @@ class MartRepository @Inject constructor(
     fun getLocalMarts(): Flow<List<MartEntity>> = dao.getAll()
 
     suspend fun fetchAndCacheMarts() {
-        val marts = api.getMarts()
+        val response = api.getMartResponse()
+        val marts = response.data
         dao.insertAll(marts.map { MartEntity.from(it) })
     }
 }
