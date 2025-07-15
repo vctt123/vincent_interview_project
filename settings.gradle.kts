@@ -11,11 +11,15 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        @Suppress("JcenterRepositoryObsolete") // 可選，避免 IDE 提示 jcenter 已過時
+        jcenter()
+        maven(url = "https://jitpack.io")
     }
 }
 
